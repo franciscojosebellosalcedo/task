@@ -459,6 +459,7 @@ document.addEventListener("DOMContentLoaded", () => {
           modal_mensaje_mensaje.textContent = "Categoria agregada con exito";
           mostrarModal(modal_mensaje);
           guardarLocalStorage(categorias, "categorias");
+          eventoBotonesEliminarCategoria();
         }
       }
     }
