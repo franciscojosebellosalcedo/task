@@ -1,0 +1,10 @@
+
+.fondo_negro{
+    background-color: #000000f2;
+    --sombra: 0px 0px 3px 0px rgba(255, 255, 255, 0.882);
+    --color-botones:rgba(255, 255, 255, 0.889);
+    transition: background-color .8s;
+}
+.letras_blancas{
+    color: rgba(255, 255, 255, 0.889);
+}

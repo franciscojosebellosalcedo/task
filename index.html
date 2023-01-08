@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Tareas</title>
+  <link rel="stylesheet" href="./style/index.css">
+  <link rel="stylesheet" href="./style/styleTema.css">
+  <link rel="icon" href="../icon/logo-app-tarea.png" type="image/png">
+</head>
+
+<body>
+  <div class="app">
+    <nav class="app_menu">
+      <ul class="menu_lista">
+        <li class="menu_item">
+          <figure class="menu_logo"></figure>
+        </li>
+        <li class="menu_item">
+          <p class="menu_slogan">Distribuye tu tiempo de la mejor manera</p>
+        </li>
+        <li class="menu_item">
+          <div class="slider">
+            <div class="rueda"></div>
+            <figure class="icon icon_sol"></figure>
+            <figure class="icon icon_luna"></figure>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container_app">
+      <div class="app_container_f">
+        <h1 class="fecha"></h1>
+        <button type="button" class="btn btn_reciclaje" title="Reciclaje">
+          <figure class="icon icon_reciclaje"></figure>
+          Reciclaje
+        </button>
+      </div>
+
+      </h1>
+      <div class="seccion">
+        <div class="container_formulario">
+          <h3 class="titulo titulo_nueva_tarea">Nueva tarea</h3>
+          <form class="formulario">
+
+            <select title="categorias" name="seceltor_categoria" class="selector_categoria selector"
+              id="selector_categoria">
+
+            </select>
+
+            <input placeholder="Titulo de la tarea" type="text" class="input" id="input_titulo_tarea">
+            <textarea placeholder="Descripcion de la tarea" class="textarea" id="textarea_descripcion_tarea"></textarea>
+            <button type="button" class="btn btn_agregar_tarea">
+              <figure class="icon icon_agrgegar_tarea"></figure>Agregar tarea
+            </button>
+          </form>
+        </div>
+        <div class="container_tareas">
+          <div class="container_controles">
+            <div class="container_botones">
+              <button type="button" class="btn btn_controles btn_tareas_hechas">
+                <figure class="icon icon_hechas"></figure>Hechas
+              </button>
+              <select name="selector_categoria_vista" title="selector categoria vista"
+                class="selector_modo_vista_tarea selector" id="selector_categoria_tarea">
+
+              </select>
+              <button type="button" class="btn btn_controles btn_ver_categorias">
+                <figure class="icon icon_categoria"></figure>Categorias
+              </button>
+            </div>
+            <div class="container_titulos">
+              <h3 class="titulo titulo_lista_tareas">Todas las tareas</h3>
+              <h3 class="titulo titulo_tareas_hechas">Tareas hechas: <span class="cantidad_tareas_hechas"></span></h3>
+            </div>
+            <div class="tareas">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--MODAL EDITAR TAREA-->
+      <div class="container_modal modal_editar ">
+        <div class="modal">
+          <figure class="icon icon_salir salir_modal_editar_tarea"></figure>
+          <h3 class="modal_titulo">Editar</h3>
+          <form class="formulario_editar">
+            <input placeholder="Titulo de la tarea" type="text" class="input" id="input_titulo_tarea_editar">
+            <textarea placeholder="Descripcion de la tarea" class="textarea" id="descripcion_tarea_editar"></textarea>
+            <div class="container_botones_modal">
+              <button type="button" class="btn btn_cancelar_tarea btn_cancelar_editar">
+                <figure class="icon icon_modal_boton icon_cancelar_tarea"></figure>Cancelar
+              </button>
+              <button type="button" class="btn btn_actualizar_tarea">
+                <figure class="icon icon_modal_boton icon_actualizar_tarea"></figure>Actualizar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--MODAL ElIMINAR TAREA-->
+      <div class="container_modal modal_eliminar ">
+        <div class="modal modal_eliminar_tarea">
+          <figure class="icon icon_salir salir_modal_eliminar"></figure>
+          <h3 class="modal_titulo">Eliminar</h3>
+          <div class="modal_eliminar_info">
+            <p class="pregunta">¿ Desea eliminar la tarea ?</p>
+            <p class="nota">Las tareas eliminadas se agregaran al reciclaje</p>
+            <div class="container_botones_modal">
+              <button type="button" class="btn btn_cancelar_tarea btn_cancelar_eliminar">
+                <figure class="icon icon_modal_boton icon_cancelar_tarea"></figure>Cancelar
+              </button>
+              <button type="button" class="btn btn_modal_eliminar_tarea">
+                <figure class="icon icon_modal_boton icon_modal_eliminar_tarea"></figure>Eliminar
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!--MODAL ElIMINAR CATEGORIA-->
+      <div class="container_modal modal_eliminar_categoria">
+        <div class="modal modal_eliminar_tarea modal_eliminar_categorias">
+          <figure class="icon icon_salir salir_modal_eliminar salir_modal_eliminar_categoria"></figure>
+          <h3 class="modal_titulo">Eliminar</h3>
+          <div class="modal_eliminar_info">
+            <p class="pregunta">¿ Desea eliminar la categoria ?</p>
+            <p class="nota">Las categorias eliminadas se agregaran al reciclaje</p>
+            <div class="container_botones_modal">
+              <button type="button" class="btn btn_cancelar_tarea btn_cancelar_eliminar btn_cancelar_eliminar_categoria">
+                <figure class="icon icon_modal_boton icon_cancelar_tarea"></figure>Cancelar
+              </button>
+              <button type="button" class="btn btn_modal_eliminar_tarea btn_modal_eliminar_categoria">
+                <figure class="icon icon_modal_boton icon_modal_eliminar_tarea"></figure>Eliminar
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!--MODAL ADMINISTRAR CATEGORIAS-->
+      <div class="container_modal modal_categorias">
+        <div class="modal modal_categorias_tareas">
+          <figure class="icon icon_salir salir_modal_categorias"></figure>
+          <h3 class="modal_titulo">Categorias</h3>
+          <form class="formulario_categoria">
+            <input type="text" class="input input_categoria" placeholder="Nombre categoria" id="input_categoria_nueva">
+            <button type="button" class="btn btn_agregar_tarea btn_agregar_categoria">
+              <figure class="icon icon_agrgegar_tarea"></figure>
+              Agregar
+            </button>
+          </form>
+          <div class="categorias">
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!--MODAL MENSAJE-->
+
+      <div class="container_modal modal_mensaje ">
+        <div class="modal  modal_mensaje_tarea">
+          <figure class="icon icon_salir salir_modal_mensaje"></figure>
+          <h3 class="modal_titulo">Mensaje</h3>
+          <p class="modal_mensaje_mensaje">Mensaje que se le pondra</p>
+        </div>
+      </div>
+
+      <!--MODAL RECICLAJE-->
+      <div class="container_modal modal_reciclaje  ">
+        <div class="modal container_info_reciclaje">
+          <figure class="icon icon_salir salir_modal_reciclaje"></figure>
+          <h1 class="titulo_modal_reciclaje">Reciclaje</h1>
+          <div class="container_reciclaje">
+            <div class="caja_administracion">
+              <div class="container_btn_reciclaje">
+                <button type="button" class="btn btn_reciclaje_modal btn_mostrar_tareas_reciclaje">
+                  <figure class="icon_btn_acciones_menu icon_tareas"></figure>
+                  Tareas
+                </button>
+                <button type="button" class="btn btn_reciclaje_modal btn_mostrar_categoria_reciclaje">
+                  <figure class="icon_btn_acciones_menu icon_categorias"></figure>
+                  Categorias
+                </button>
+              </div>
+              <div class="container_menu_reciclaje">
+                <figure class=" icon_menu_administracion icon_menu_admin">
+                  <div class="linea linea_arriba"></div>
+                  <div class="linea linea_medio"></div>
+                  <div class="linea linea_abajo"></div>
+                </figure>
+                <nav class="menu_administracion">
+                  <div class="container_acciones_menu">
+                    <h4 class="titulo_acciones">Acciones tareas</h4>
+                    <div class="container_botones_acciones">
+                      <button class="btn_acciones_menu_reciclaje btn_restablecer_tareas" type="button">
+                        <figure class="icon_btn_acciones_menu icon_restablecer_tareas"></figure>
+                        Restablecer tareas</button>
+                      <button class="btn_acciones_menu_reciclaje btn_eliminar_tareas" type="button">
+                        <figure class="icon_btn_acciones_menu icon_eliminar_tareas"></figure>
+                        Eliminar tareas
+                      </button>
+                    </div>
+                  </div>
+                  <div class="container_acciones_menu">
+                    <h4 class="titulo_acciones">Acciones categorias</h4>
+                    <div class="container_botones_acciones">
+                      <button class="btn_acciones_menu_reciclaje btn_restablecer_categorias" type="button">
+                        <figure class="icon_btn_acciones_menu icon_restablecer_categorias"></figure>
+                        Restablecer categorias
+                      </button>
+                      <button class="btn_acciones_menu_reciclaje btn_eliminar_categorias" type="button">
+                        <figure class="icon_btn_acciones_menu icon_eliminar_categorias"></figure>
+                        Eliminar categorias
+                      </button>
+                    </div>
+                  </div>
+                  <div class="container_acciones_menu">
+                    <h4 class="titulo_acciones">Otros</h4>
+                    <div class="container_botones_acciones">
+                      <button class="btn_acciones_menu_reciclaje btn_restablecer_todo" type="button">
+                        <figure class="icon_btn_acciones_menu icon_restablecer_todo"></figure>
+                        Restablecer todo
+                      </button>
+                      <button class="btn_acciones_menu_reciclaje btn_eliminar_todo" type="button">
+                        <figure class="icon_btn_acciones_menu icon_eliminar_todo"></figure>
+                        Eliminar todo
+                      </button>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+            </div>
+            <p class="info_tareas">Tareas recicladas: <span class="cantidad_tareas_recicladas"></span> </p>
+            <p class="info_tareas">Categorias recicladas: <span class="cantidad_categorias_recicladas"></span> </p>
+            <div class="reciclaje">
+            </div>
+          </div>
+        </div>
+      </div>
+      <script type="module" src="./js/controles.js"></script>
+      <script type="module" src="./js/index.js"></script>
+      <script  src="./js/tema.js"></script>
+</body>
+</html>
