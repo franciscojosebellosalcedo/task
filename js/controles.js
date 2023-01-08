@@ -434,11 +434,11 @@ export function mostrarMenuReciclaje(menu) {
 }
 /*CODIGO PARA MOSTRAR LA FECHA */
 export function mostrarFechaActual(nodoFecha) {
-  let dias = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
+  let dias = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
   let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
   setInterval(() => {
     const fecha = new Date();
-    let dia = dias[fecha.getDay() - 1];
+    let dia = dias[fecha.getDay()];
     let diaNumero = fecha.getDate().toString();
     let mes = meses[fecha.getMonth()];
     let anio = fecha.getFullYear();
